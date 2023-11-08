@@ -1,0 +1,107 @@
+
+.nav_menu{
+    position: fixed;
+    width: 100%;
+    z-index: 2;
+}
+.nav_list{
+    padding: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    z-index: 1;
+}
+.nav_link{
+    font-family: 'Chakra Petch', sans-serif;
+    font-size: clamp(1em, 2vw, 2vw);
+    color: #fff;
+    text-decoration: none;
+    transition: 0.5s;
+    list-style: none;
+    text-align: center;
+    flex: 1;
+}
+
+#menu_toggle{
+    visibility: hidden;
+    z-index:3;
+}
+
+@media (max-width: 600px) {
+    .nav_list{
+        display: block;
+        position: fixed;
+        visibility: hidden;
+        top: 0;
+        left: -100%;
+        width: 20em;
+        height: 100%;
+        margin: 0;
+        padding: 10vw 0;
+        background-color:rgba(0, 0, 0, .7);
+        box-shadow: 1px 0px 6px rgba(0, 0, 0, 1);
+        z-index: 1;
+    transition: 0.5s;
+
+
+    }
+    .nav_link{
+        display: block;
+        padding: 12px 24px;
+        color: #fff;
+        font-size: 18px;
+        font-weight: 600;
+    }
+    #menu_toggle{
+        visibility: visible;
+        opacity: 0;
+    }
+    #menu_toggle:checked ~ .menu_button > span {
+        transform: rotate(45deg);
+      }
+      #menu_toggle:checked ~ .menu_button > span::before {
+        top: 0;
+        transform: rotate(0);
+      }
+      #menu_toggle:checked ~ .menu_button > span::after {
+        top: 0;
+        transform: rotate(90deg);
+      }
+      #menu_toggle:checked ~ .nav_list {
+        visibility: visible;
+        left: 0;
+      }
+    .menu_button{
+        display: flex; 
+        align-items: center;  
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        width: 26px;
+        height: 26px;
+        cursor: pointer;
+        z-index: 2;
+    }
+    .menu_button > span,
+.menu_button > span::before,
+.menu_button > span::after {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: #ccc;
+}
+.menu_button > span::before {
+    content: '';
+    top: -8px;
+  }
+  .menu_button > span::after {
+    content: '';
+    top: 8px;
+  }
+
+}
+.nav_link:hover{
+    transform: scale(1.1);
+}
